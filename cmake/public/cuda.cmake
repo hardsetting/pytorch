@@ -10,7 +10,7 @@ endif()
 list(APPEND CMAKE_MODULE_PATH ${CMAKE_CURRENT_LIST_DIR}/../Modules_CUDA_fix)
 
 # Find CUDA.
-find_package(CUDA 7.0)
+find_package(CUDA)
 if(NOT CUDA_FOUND)
   message(WARNING
     "Caffe2: CUDA cannot be found. Depending on whether you are building "
@@ -372,7 +372,7 @@ elseif (CUDA_DEVICE_DEBUG)
 endif()
 
 # Set expt-relaxed-constexpr to suppress Eigen warnings
-list(APPEND CUDA_NVCC_FLAGS "--expt-relaxed-constexpr")
+# list(APPEND CUDA_NVCC_FLAGS "--expt-relaxed-constexpr")
 
 # Set expt-extended-lambda to support lambda on device
-list(APPEND CUDA_NVCC_FLAGS "--expt-extended-lambda")
+# list(APPEND CUDA_NVCC_FLAGS "--expt-extended-lambda")

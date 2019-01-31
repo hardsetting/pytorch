@@ -5,11 +5,11 @@
 #include <c10/macros/Macros.h>
 
 #ifdef __CUDACC__
-#include <cuda_fp16.h>
+//#include <cuda_fp16.h>
 #endif
 
 #ifdef __HIPCC__
-#include <hip/hip_fp16.h>
+//#include <hip/hip_fp16.h>
 #endif
 
 namespace c10 {
@@ -17,7 +17,7 @@ namespace c10 {
 /// Constructors
 
 inline C10_HOST_DEVICE Half::Half(float value) {
-#if defined(__CUDA_ARCH__) || defined(__HIP_DEVICE_COMPILE__)
+#if false && defined(__CUDA_ARCH__) || defined(__HIP_DEVICE_COMPILE__)
   x = __half_as_short(__float2half(value));
 #else
   x = detail::fp16_ieee_from_fp32_value(value);
@@ -27,14 +27,14 @@ inline C10_HOST_DEVICE Half::Half(float value) {
 /// Implicit conversions
 
 inline C10_HOST_DEVICE Half::operator float() const {
-#if defined(__CUDA_ARCH__) || defined(__HIP_DEVICE_COMPILE__)
+#if false && defined(__CUDA_ARCH__) || defined(__HIP_DEVICE_COMPILE__)
   return __half2float(*reinterpret_cast<const __half*>(&x));
 #else
   return detail::fp16_ieee_to_fp32_value(x);
 #endif
 }
 
-#if defined(__CUDACC__) || defined(__HIPCC__)
+#if false && defined(__CUDACC__) || defined(__HIPCC__)
 inline C10_HOST_DEVICE Half::Half(const __half& value) {
   x = *reinterpret_cast<const unsigned short*>(&value);
 }
@@ -45,7 +45,7 @@ inline C10_HOST_DEVICE Half::operator __half() const {
 
 // CUDA intrinsics
 
-#if defined(__CUDA_ARCH__) && (__CUDA_ARCH__ >= 350)
+#if false && defined(__CUDA_ARCH__) && (__CUDA_ARCH__ >= 350)
 inline __device__ Half __ldg(const Half* ptr) {
     return __ldg(reinterpret_cast<const __half*>(ptr));
 }

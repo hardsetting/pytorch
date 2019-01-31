@@ -92,6 +92,7 @@ class Int8ConvTransposeOp final : public ConvTransposeUnpoolBase<CPUContext> {
             Y->scale,
             std::numeric_limits<uint8_t>::min(),
             std::numeric_limits<uint8_t>::max(),
+	    0,
             &this->qnnpackObject_);
         CAFFE_ENFORCE(
             createStatus == qnnp_status_success,

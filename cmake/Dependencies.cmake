@@ -1081,7 +1081,7 @@ if (NOT BUILD_ATEN_MOBILE)
   endif()
 
   LIST(APPEND CUDA_NVCC_FLAGS -Wno-deprecated-gpu-targets)
-  LIST(APPEND CUDA_NVCC_FLAGS --expt-extended-lambda)
+  # LIST(APPEND CUDA_NVCC_FLAGS --expt-extended-lambda)
 
   if (NOT CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
     SET(CMAKE_CXX_STANDARD 11)

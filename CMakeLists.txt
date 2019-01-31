@@ -443,7 +443,7 @@ else()
 endif()
 
 # ---[ Modules
-add_subdirectory(modules)
+# add_subdirectory(modules)
 
 # ---[ Binaries
 # Binaries will be built after the Caffe2 main libraries and the modules
