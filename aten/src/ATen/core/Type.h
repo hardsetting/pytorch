@@ -9,7 +9,7 @@
 #include <c10/core/ScalarType.h>
 #include "ATen/core/SparseTensorRef.h"
 #include <c10/util/ArrayRef.h>
-#include <c10/Half.h>
+//#include <c10/Half.h>
 #include <c10/core/TensorTypeIdRegistration.h>
 #include "ATen/core/Reduction.h"
 #include "ATen/core/TensorOptions.h"
@@ -49,7 +49,7 @@ enum class TypeID {
   CPUInt,
   CPULong,
   CPUShort,
-  CPUHalf,
+  //CPUHalf,
   SparseCPUByte,
   SparseCPUChar,
   SparseCPUDouble,
@@ -64,7 +64,7 @@ enum class TypeID {
   CUDAInt,
   CUDALong,
   CUDAShort,
-  CUDAHalf,
+  //CUDAHalf,
   SparseCUDAByte,
   SparseCUDAChar,
   SparseCUDADouble,

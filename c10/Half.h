@@ -306,7 +306,7 @@ struct alignas(2) Half {
   inline C10_HOST_DEVICE Half(float value);
   inline C10_HOST_DEVICE operator float() const;
 
-#if defined(__CUDACC__) || defined(__HIPCC__)
+#if false && defined(__CUDACC__) || defined(__HIPCC__)
   inline C10_HOST_DEVICE Half(const __half& value);
   inline C10_HOST_DEVICE operator __half() const;
 #endif
