@@ -18,7 +18,7 @@
 #include <exception>
 
 #include "c10/util/Backtrace.h"
-//#include "c10/Half.h"
+#include "c10/Half.h"
 #include "c10/macros/Macros.h"
 #include "c10/util/C++17.h"
 #include "c10/util/Exception.h"
