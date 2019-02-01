@@ -11,11 +11,11 @@
 
 #include <cuda.h>
 #include <cuda_runtime.h>
-#include <cuda_fp16.h>
+//#include <cuda_fp16.h>
 
 namespace c10 {
 
-#if defined(__CUDACC__) || defined(__HIP_PLATFORM_HCC__)
+#if false && defined(__CUDACC__) || defined(__HIP_PLATFORM_HCC__)
 template <>
 struct CTypeToScalarType<__half> : public CTypeToScalarType<Half> {};
 #endif

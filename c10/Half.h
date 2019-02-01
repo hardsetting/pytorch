@@ -289,8 +289,8 @@ namespace detail {
 
 } // namespace detail
 
-struct alignas(2) Half {
-  unsigned short x;
+struct alignas(4) Half {
+  unsigned int x;
 
   struct from_bits_t {};
   static constexpr from_bits_t from_bits = from_bits_t();
@@ -305,11 +305,6 @@ struct alignas(2) Half {
   constexpr C10_HOST_DEVICE Half(unsigned short bits, from_bits_t) : x(bits){};
   inline C10_HOST_DEVICE Half(float value);
   inline C10_HOST_DEVICE operator float() const;
-
-#if defined(__CUDACC__) || defined(__HIPCC__)
-  inline C10_HOST_DEVICE Half(const __half& value);
-  inline C10_HOST_DEVICE operator __half() const;
-#endif
 };
 
 // This is just a placeholder for whatever complex representation we
